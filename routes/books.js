@@ -20,7 +20,9 @@ router.get('/', secured, async (req, res) => {
 router.get('/add', secured, (req, res) => {
     res.render('form', { 
         title: 'Add a New Book', 
-        action: '/add', 
+        action: '/add',
+        book: null,
+        message: undefined,
         active: 'add' 
     });
 });
@@ -57,7 +59,8 @@ router.get('/edit/:id', secured, async (req, res) => {
         res.render('form', { 
             title: 'Edit Book', 
             action: `/edit/${req.params.id}`, 
-            book, 
+            book,
+            message: undefined,
             active: 'edit' 
         });
     } catch (error) {
