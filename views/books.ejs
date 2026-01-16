@@ -1,0 +1,42 @@
+<%- include('./partials/header') %>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <% books.forEach(book => { %>
+        <div class="col">
+            <div class="card m-2 p-2">
+                <div class="card-body">
+
+                    <h5 class="card-title"><%= book.title %></h5>
+                    <p class="card-subtitle"><%= book.isbn %></p>
+
+                    <p class="card-text">
+                        <% book.tags.forEach(tag => { %>
+                            <span class="badge text-bg-secondary"><%= tag %></span>
+                        <% }) %>
+                    </p>
+
+                    <p class="text-secondary"><%= book.publisher %></p>
+
+                    <div class="d-flex justify-content-between">
+
+                        <% if (user) { %>
+                            <a href="/edit/<%= book._id %>" class="btn btn-secondary">Edit</a>
+
+                            <form method="POST" action="/delete/<%= book._id %>">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        <% } else { %>
+                            <span class="text-muted">Login to edit or delete</span>
+                        <% } %>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <% }) %>
+
+</div>
+
+<%- include('./partials/footer') %>
