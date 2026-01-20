@@ -37,7 +37,8 @@ router.post('/add', secured, async (req, res) => {
 
         res.render('form', { 
             title: 'Add a New Book', 
-            action: '/add', 
+            action: '/add',
+            book: null,
             message: 'Book added successfully!', 
             active: 'add' 
         });
@@ -45,7 +46,8 @@ router.post('/add', secured, async (req, res) => {
         console.error('Error creating book:', error);
         res.render('form', { 
             title: 'Add a New Book', 
-            action: '/add', 
+            action: '/add',
+            book: null,
             message: 'Error creating book', 
             active: 'add' 
         });

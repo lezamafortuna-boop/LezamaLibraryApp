@@ -30,6 +30,18 @@
             </div>
 
             <div class="mb-3">
+                <label class="form-label">Inventory</label>
+                <input name="inventory" type="number" class="form-control" 
+                       value="<%= book ? book.inventory : '' %>">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Units Sold</label>
+                <input name="unitsSold" type="number" class="form-control" 
+                       value="<%= book ? book.unitsSold : '' %>">
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label">Tags (comma separated)</label>
                 <input name="tags" class="form-control" 
                        value="<%= book ? book.tags.join(', ') : '' %>">
